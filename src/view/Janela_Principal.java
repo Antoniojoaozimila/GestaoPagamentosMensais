@@ -17,6 +17,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     public Janela_Principal() {
         initComponents();
      this.setLocationRelativeTo(this);
+     //this.opcao_um.setSelected(true);
     }
 
     /**
@@ -31,13 +32,13 @@ public class Janela_Principal extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        rSButtonMetro1 = new BotaoMenu.RSButtonMetro();
-        jPanel2 = new javax.swing.JPanel();
-        rSButtonMetro2 = new BotaoMenu.RSButtonMetro();
+        botaoMenu = new BotaoMenu.RSButtonMetro();
+        panl1Menu = new javax.swing.JPanel();
+        opcao_um = new BotaoMenu.RSButtonMetro();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        rSButtonMetro3 = new BotaoMenu.RSButtonMetro();
-        rSButtonMetro4 = new BotaoMenu.RSButtonMetro();
+        opcao_dois = new BotaoMenu.RSButtonMetro();
+        opcao_tres = new BotaoMenu.RSButtonMetro();
         jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,9 +49,14 @@ public class Janela_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(38, 86, 186));
         jPanel1.setPreferredSize(new java.awt.Dimension(964, 63));
 
-        rSButtonMetro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/menu.png"))); // NOI18N
-        rSButtonMetro1.setColorNormal(new java.awt.Color(38, 86, 186));
-        rSButtonMetro1.setColorPressed(new java.awt.Color(38, 86, 186));
+        botaoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/menu.png"))); // NOI18N
+        botaoMenu.setColorNormal(new java.awt.Color(38, 86, 186));
+        botaoMenu.setColorPressed(new java.awt.Color(38, 86, 186));
+        botaoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -58,14 +64,14 @@ public class Janela_Principal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rSButtonMetro1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rSButtonMetro1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(botaoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -81,19 +87,19 @@ public class Janela_Principal extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.3;
         jPanel4.add(jPanel1, gridBagConstraints);
 
-        rSButtonMetro2.setBackground(new java.awt.Color(204, 204, 204));
-        rSButtonMetro2.setForeground(new java.awt.Color(128, 128, 131));
-        rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home.png"))); // NOI18N
-        rSButtonMetro2.setText("HOME");
-        rSButtonMetro2.setToolTipText("");
-        rSButtonMetro2.setColorHover(new java.awt.Color(204, 204, 204));
-        rSButtonMetro2.setColorNormal(new java.awt.Color(204, 204, 204));
-        rSButtonMetro2.setColorTextHover(new java.awt.Color(128, 128, 131));
-        rSButtonMetro2.setColorTextNormal(new java.awt.Color(128, 128, 131));
-        rSButtonMetro2.setColorTextPressed(new java.awt.Color(128, 128, 131));
-        rSButtonMetro2.addActionListener(new java.awt.event.ActionListener() {
+        opcao_um.setBackground(new java.awt.Color(204, 204, 204));
+        opcao_um.setForeground(new java.awt.Color(128, 128, 131));
+        opcao_um.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/home.png"))); // NOI18N
+        opcao_um.setText("HOME");
+        opcao_um.setToolTipText("");
+        opcao_um.setColorHover(new java.awt.Color(204, 204, 204));
+        opcao_um.setColorNormal(new java.awt.Color(204, 204, 204));
+        opcao_um.setColorTextHover(new java.awt.Color(128, 128, 131));
+        opcao_um.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        opcao_um.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        opcao_um.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro2ActionPerformed(evt);
+                opcao_umActionPerformed(evt);
             }
         });
 
@@ -117,49 +123,49 @@ public class Janela_Principal extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        rSButtonMetro3.setBackground(new java.awt.Color(239, 238, 244));
-        rSButtonMetro3.setForeground(new java.awt.Color(128, 128, 131));
-        rSButtonMetro3.setText("CADASTRAR+");
-        rSButtonMetro3.setColorHover(new java.awt.Color(204, 204, 204));
-        rSButtonMetro3.setColorNormal(new java.awt.Color(239, 238, 244));
-        rSButtonMetro3.setColorPressed(new java.awt.Color(239, 238, 244));
-        rSButtonMetro3.setColorTextHover(new java.awt.Color(128, 128, 131));
-        rSButtonMetro3.setColorTextNormal(new java.awt.Color(128, 128, 131));
-        rSButtonMetro3.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        opcao_dois.setBackground(new java.awt.Color(239, 238, 244));
+        opcao_dois.setForeground(new java.awt.Color(128, 128, 131));
+        opcao_dois.setText("CADASTRAR+");
+        opcao_dois.setColorHover(new java.awt.Color(204, 204, 204));
+        opcao_dois.setColorNormal(new java.awt.Color(239, 238, 244));
+        opcao_dois.setColorPressed(new java.awt.Color(239, 238, 244));
+        opcao_dois.setColorTextHover(new java.awt.Color(128, 128, 131));
+        opcao_dois.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        opcao_dois.setColorTextPressed(new java.awt.Color(128, 128, 131));
 
-        rSButtonMetro4.setForeground(new java.awt.Color(128, 128, 131));
-        rSButtonMetro4.setText("LISTAR");
-        rSButtonMetro4.setColorHover(new java.awt.Color(204, 204, 204));
-        rSButtonMetro4.setColorNormal(new java.awt.Color(239, 238, 244));
-        rSButtonMetro4.setColorTextHover(new java.awt.Color(128, 128, 131));
-        rSButtonMetro4.setColorTextNormal(new java.awt.Color(128, 128, 131));
-        rSButtonMetro4.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        opcao_tres.setForeground(new java.awt.Color(128, 128, 131));
+        opcao_tres.setText("LISTAR");
+        opcao_tres.setColorHover(new java.awt.Color(204, 204, 204));
+        opcao_tres.setColorNormal(new java.awt.Color(239, 238, 244));
+        opcao_tres.setColorTextHover(new java.awt.Color(128, 128, 131));
+        opcao_tres.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        opcao_tres.setColorTextPressed(new java.awt.Color(128, 128, 131));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panl1MenuLayout = new javax.swing.GroupLayout(panl1Menu);
+        panl1Menu.setLayout(panl1MenuLayout);
+        panl1MenuLayout.setHorizontalGroup(
+            panl1MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(opcao_um, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(opcao_dois, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(opcao_tres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panl1MenuLayout.setVerticalGroup(
+            panl1MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panl1MenuLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(opcao_um, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(opcao_dois, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(rSButtonMetro3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(rSButtonMetro4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(opcao_tres, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -168,7 +174,7 @@ public class Janela_Principal extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipady = 206;
         gridBagConstraints.weighty = 15.5;
-        jPanel4.add(jPanel2, gridBagConstraints);
+        jPanel4.add(panl1Menu, gridBagConstraints);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -198,15 +204,24 @@ public class Janela_Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
+    private void opcao_umActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcao_umActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSButtonMetro2ActionPerformed
+    }//GEN-LAST:event_opcao_umActionPerformed
+
+    private void botaoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuActionPerformed
+       int posicion = panl1Menu.getX();
+        if(posicion > -1){
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, panl1Menu);
+        }else{
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, panl1Menu);
+        }
+    }//GEN-LAST:event_botaoMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,15 +259,15 @@ public class Janela_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private BotaoMenu.RSButtonMetro botaoMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private BotaoMenu.RSButtonMetro rSButtonMetro1;
-    private BotaoMenu.RSButtonMetro rSButtonMetro2;
-    private BotaoMenu.RSButtonMetro rSButtonMetro3;
-    private BotaoMenu.RSButtonMetro rSButtonMetro4;
+    private BotaoMenu.RSButtonMetro opcao_dois;
+    private BotaoMenu.RSButtonMetro opcao_tres;
+    private BotaoMenu.RSButtonMetro opcao_um;
+    private javax.swing.JPanel panl1Menu;
     // End of variables declaration//GEN-END:variables
 }
