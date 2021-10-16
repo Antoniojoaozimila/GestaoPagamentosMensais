@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.awt.Color;
+import view.Paineis.CambiaPanel;
+import view.Paineis.Painel_Cadastros;
+import view.Paineis.Painel_Home;
+
 /**
  *
  * @author Antonio Joao Zimila
@@ -17,7 +22,11 @@ public class Janela_Principal extends javax.swing.JFrame {
     public Janela_Principal() {
         initComponents();
      this.setLocationRelativeTo(this);
-     //this.opcao_um.setSelected(true);
+     this.opcao_um.setSelected(true);
+    
+     /*PainelCasa recebe todos os pais que criei
+       painel Home é o primeiro painel que entra no painelCasa
+     */
     }
 
     /**
@@ -32,14 +41,17 @@ public class Janela_Principal extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        botaoMenu = new BotaoMenu.RSButtonMetro();
+        botaoMenuPr = new javax.swing.JButton();
         panl1Menu = new javax.swing.JPanel();
         opcao_um = new BotaoMenu.RSButtonMetro();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         opcao_dois = new BotaoMenu.RSButtonMetro();
         opcao_tres = new BotaoMenu.RSButtonMetro();
+        jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        PainelCasa = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +61,15 @@ public class Janela_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(38, 86, 186));
         jPanel1.setPreferredSize(new java.awt.Dimension(964, 63));
 
-        botaoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/menu.png"))); // NOI18N
-        botaoMenu.setColorNormal(new java.awt.Color(38, 86, 186));
-        botaoMenu.setColorPressed(new java.awt.Color(38, 86, 186));
-        botaoMenu.addActionListener(new java.awt.event.ActionListener() {
+        botaoMenuPr.setBackground(new java.awt.Color(38, 86, 186));
+        botaoMenuPr.setForeground(new java.awt.Color(38, 86, 186));
+        botaoMenuPr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/menu.png"))); // NOI18N
+        botaoMenuPr.setBorder(null);
+        botaoMenuPr.setContentAreaFilled(false);
+        botaoMenuPr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoMenuPr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoMenuActionPerformed(evt);
+                botaoMenuPrActionPerformed(evt);
             }
         });
 
@@ -64,27 +79,27 @@ public class Janela_Principal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botaoMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(botaoMenuPr, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1052, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botaoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(botaoMenuPr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 833;
+        gridBagConstraints.ipadx = 1042;
         gridBagConstraints.ipady = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.3;
         jPanel4.add(jPanel1, gridBagConstraints);
 
         opcao_um.setBackground(new java.awt.Color(204, 204, 204));
@@ -137,6 +152,11 @@ public class Janela_Principal extends javax.swing.JFrame {
         opcao_dois.setColorTextHover(new java.awt.Color(128, 128, 131));
         opcao_dois.setColorTextNormal(new java.awt.Color(128, 128, 131));
         opcao_dois.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        opcao_dois.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcao_doisActionPerformed(evt);
+            }
+        });
 
         opcao_tres.setForeground(new java.awt.Color(128, 128, 131));
         opcao_tres.setText("LISTAR");
@@ -145,6 +165,11 @@ public class Janela_Principal extends javax.swing.JFrame {
         opcao_tres.setColorTextHover(new java.awt.Color(128, 128, 131));
         opcao_tres.setColorTextNormal(new java.awt.Color(128, 128, 131));
         opcao_tres.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        opcao_tres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcao_tresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panl1MenuLayout = new javax.swing.GroupLayout(panl1Menu);
         panl1Menu.setLayout(panl1MenuLayout);
@@ -153,7 +178,9 @@ public class Janela_Principal extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(opcao_um, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(opcao_dois, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(opcao_tres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panl1MenuLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(opcao_tres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panl1MenuLayout.setVerticalGroup(
             panl1MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,18 +192,33 @@ public class Janela_Principal extends javax.swing.JFrame {
                 .addComponent(opcao_dois, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(opcao_tres, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipady = 206;
-        gridBagConstraints.weighty = 15.5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipady = 350;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel4.add(panl1Menu, gridBagConstraints);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel4.add(jPanel2, gridBagConstraints);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -190,38 +232,103 @@ public class Janela_Principal extends javax.swing.JFrame {
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 730;
-        gridBagConstraints.ipady = 480;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel4.add(jPanel5, gridBagConstraints);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel4.add(jPanel6, gridBagConstraints);
+
+        PainelCasa.setBackground(new java.awt.Color(255, 255, 255));
+        PainelCasa.setName(""); // NOI18N
+        PainelCasa.setLayout(new javax.swing.BoxLayout(PainelCasa, javax.swing.BoxLayout.LINE_AXIS));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 950;
+        gridBagConstraints.ipady = 620;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel4.add(PainelCasa, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcao_umActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcao_umActionPerformed
-        // TODO add your handling code here:
+        new CambiaPanel(PainelCasa,new Painel_Home());
+        if(this.opcao_um.isSelected()){
+      
+        this.opcao_um.setColorNormal(new Color(204,204,204));
+        this.opcao_um.setColorHover(new Color(204,204,204));
+        this.opcao_um.setColorPressed(new Color(0,0,0));    
+        }else{
+        this.opcao_um.setColorNormal(new Color(204,204,204));
+        this.opcao_um.setColorHover(new Color(204,204,204));
+        this.opcao_um.setColorPressed(new Color(0,0,0));   
+        }
     }//GEN-LAST:event_opcao_umActionPerformed
 
-    private void botaoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuActionPerformed
-       int posicion = panl1Menu.getX();
+    private void botaoMenuPrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuPrActionPerformed
+          int posicion = panl1Menu.getX();
         if(posicion > -1){
             Animacion.Animacion.mover_izquierda(0, -264, 2, 2, panl1Menu);
         }else{
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, panl1Menu);
         }
-    }//GEN-LAST:event_botaoMenuActionPerformed
+    }//GEN-LAST:event_botaoMenuPrActionPerformed
+
+    private void opcao_doisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcao_doisActionPerformed
+        new CambiaPanel(PainelCasa,new Painel_Cadastros());
+        if(this.opcao_dois.isSelected()){
+       // new CambiaPanel(PainelCasa,new Painel_Cadastros());
+        //new CambiaPanel(PainelCasa,new Painel_Home());
+        this.opcao_dois.setColorNormal(new Color(239,238,244));
+        this.opcao_dois.setColorHover(new Color(204,204,204));
+        this.opcao_dois.setColorPressed(new Color(0,0,0));    
+        }else{
+        this.opcao_dois.setColorNormal(new Color(239,238,244));
+        this.opcao_dois.setColorHover(new Color(204,204,204));
+        this.opcao_dois.setColorPressed(new Color(0,0,0));       
+       }
+    }//GEN-LAST:event_opcao_doisActionPerformed
+
+    private void opcao_tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcao_tresActionPerformed
+        if(this.opcao_tres.isSelected()){
+        //new CambiaPanel(PainelCasa,new Painel_Home());
+        this.opcao_tres.setColorNormal(new Color(239,238,244));
+        this.opcao_tres.setColorHover(new Color(204,204,204));
+        this.opcao_tres.setColorPressed(new Color(0,0,0));    
+        }else{
+        this.opcao_tres.setColorNormal(new Color(239,238,244));
+        this.opcao_tres.setColorHover(new Color(204,204,204));
+        this.opcao_tres.setColorPressed(new Color(0,0,0));     
+        }
+    }//GEN-LAST:event_opcao_tresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,12 +366,15 @@ public class Janela_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private BotaoMenu.RSButtonMetro botaoMenu;
+    private javax.swing.JPanel PainelCasa;
+    private javax.swing.JButton botaoMenuPr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private BotaoMenu.RSButtonMetro opcao_dois;
     private BotaoMenu.RSButtonMetro opcao_tres;
     private BotaoMenu.RSButtonMetro opcao_um;
